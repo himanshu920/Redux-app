@@ -10,11 +10,14 @@ import _ from 'lodash';
 
 const Home = (props) =>  {
     let loader = true;
-    useEffect(() => {
-      props.getNewsList()
-    },[])
-
     let storyList = '';
+
+    const { getNewsList } = props;
+
+    useEffect(() => {
+      getNewsList()
+    },[getNewsList])
+
     if(!_.isEmpty(props.newsList)) {
       loader = false
       storyList = props.newsList.map( (dataItem, i) => {
@@ -29,7 +32,7 @@ const Home = (props) =>  {
         )
       })
     } else {
-      storyList = <tr style={{ textAlign:'center'}} ><td colSpan="5">No Record Found</td></tr>
+      storyList = <tr><td colSpan="5"></td></tr>
     }
   	return(
   			<div>

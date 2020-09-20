@@ -1,7 +1,5 @@
 import axios from 'axios';
 import config from 'react-global-configuration';
-import constants from './config/constants';
-
 export const postApi = (route, data) => {
 	const postUrl = config.get('apiBaseUrl')+route;
 
